@@ -1,10 +1,13 @@
 # Java-2D-RPG
 ## Controls
-W - Up
-S - Down
-A - Left
-D - Right
-
-I - Inventory
-
-ESC - Exit
+<ul>
+<li>W - Up</li>
+<li>S - Down</li>
+<li>A - Left</li>
+<li>D - Right</li>
+</ul>
+<hr>
+<ul>
+<li>I - Inventory</li>
+<li>ESC - Exit</li>
+</ul>
