@@ -1,0 +1,1 @@
+Esto es un cuadro de texto que escribe un texto dentro de un cuadro
