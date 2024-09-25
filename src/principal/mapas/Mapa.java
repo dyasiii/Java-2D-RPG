@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import principal.Constantes;
 import principal.herramientas.CargadorRecursos;
 import principal.herramientas.DibujoDebug;
-import principal.inventario.ContenedorObjetos;
 import principal.sprites.HojaSprites;
 import principal.sprites.Sprite;
 
@@ -31,9 +30,7 @@ public class Mapa {
 
 	private final boolean[] colisiones;
 	
-	public final ArrayList<Rectangle> areasColision = new ArrayList<Rectangle>();
-	
-	public final ArrayList<ContenedorObjetos> objetosMapa;
+	public ArrayList<Rectangle> areasColision = new ArrayList<Rectangle>();
 	
 	private final int[] spritesExtraidos;
 	
@@ -78,53 +75,13 @@ public class Mapa {
 		siguienteMapa = datosDeSalida[2];
 
 		spritesExtraidos = extraerSprites(cadenasSprites);
+		/*for(int i = 0; i < spritesExtraidos.length; i ++) {
+			System.out.println(spritesExtraidos[i]);
+		}*/
 		
 		zonaSalida = new Rectangle();
-		
-		String informacionObjetos = datosMapa[8];
-		objetosMapa = asignarObjetos(informacionObjetos);
-		
 	}
 	
-	private ArrayList<ContenedorObjetos> asignarObjetos(final String informacionObjetos) {
-		
-		final ArrayList<ContenedorObjetos> objetos = new ArrayList<ContenedorObjetos>();
-		
-		String[] contenedoresObjetos = informacionObjetos.split("#");
-		
-		for (String contenedoresIndividuales : contenedoresObjetos) {
-			final ArrayList<Integer> idObjetos = new ArrayList<Integer>();
-			final ArrayList<Integer> cantidadObjetos = new ArrayList<Integer>();
-			
-			final String[] divisionInformacionObjetos = contenedoresIndividuales.split(":");
-			final String[] coordenadas = divisionInformacionObjetos[0].split(",");
-			final Point pContenedor = new Point(Integer.parseInt(coordenadas[0]), Integer.parseInt(coordenadas[1]));
-			
-			final String[] objetosCantidades = divisionInformacionObjetos[1].split("/");
-			
-			for(String objeto : objetosCantidades) {
-				final String[] datosObjeto = objeto.split("-");
-				
-				idObjetos.add(Integer.parseInt(datosObjeto[0]));
-				cantidadObjetos.add(Integer.parseInt(datosObjeto[1]));
-			}
-			
-			final int[] id = new int[idObjetos.size()];
-			final int[] cantidad = new int[cantidadObjetos.size()];
-			
-			for(int i = 0; i < id.length; i++) {
-				id[i] = idObjetos.get(i);
-				cantidad[i] = cantidadObjetos.get(i);
-			}
-			
-			final ContenedorObjetos contenedor = new ContenedorObjetos(pContenedor, id, cantidad);
-			
-			objetos.add(contenedor);
-		}
-		 
-		return objetos;
-	}
-
 	private Sprite[] asignarSprites(final String[] partesPaleta, final String[] hojasSeparadas) {
 		Sprite[] paletaSprites = new Sprite[partesPaleta.length];
 		

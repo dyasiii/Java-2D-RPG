@@ -55,6 +55,7 @@ public class CuadroTexto {
 		DibujoDebug.dibujarRectangulos(g, posicionX, posicionY, anchoCuadro, altoCuadro, colorBorde);
 		DibujoDebug.dibujarRectangulosRelleno(g, posicionX, posicionY, anchoCuadro, altoCuadro, colorFondo);
 		DibujoDebug.dibujarString(g, textoCuadro, posicionTextoX, posicionTextoY, colorTexto);
+	
 	}
 	
 	
